@@ -20,18 +20,6 @@ export default function Home() {
       duration: 1
     });
 
-    gsap.to(".rotating-hero-div", {
-      scrollTrigger: {
-        trigger: ".after-hero",
-        // markers: true,
-        scrub: 2,
-        start: "50% 80%",
-        end: "bottom top",
-      },
-      opacity: 0,
-      duration: 1.5
-    });
-
     gsap.from(".prologue-svg", {
       scrollTrigger: {
         trigger: ".after-hero",
