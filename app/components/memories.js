@@ -48,27 +48,6 @@ const FeFuncElements = () => {
 
 const Memories = () => {
 
-    // const [images, setImages] = useState([]);
-
-    // useEffect(() => {
-    //     const fetchImages = async () => {
-    //         let imagesFromMemories = memoriesImages[0].images;
-    //         imagesFromMemories = shuffleArray(imagesFromMemories);
-
-    //         if (isSafariOnMac()) {
-    //             imagesFromMemories = imagesFromMemories.map(image => ({
-    //                 ...image,
-    //                 filterClass: 'memories-image-wrapper-no-filter'
-    //             }));
-    //         }
-
-    //         setImages(imagesFromMemories);
-    //         slideFromLeft();
-    //     };
-
-    //     fetchImages();
-    // }, []);
-
     const slideFromLeft = () => {
         const chaosFeed = document.getElementById('memories-feed');
         const sanityFeed = document.getElementById('memories-feed-sanity');
@@ -136,15 +115,6 @@ const Memories = () => {
                         </div>
                     ))}
                 </div>
-                {/* <div id="memories-feed">
-                    {images.map((image, index) => (
-                        <div key={index} className="memories-image-box">
-                            <div className={image.filterClass || 'memories-image-wrapper'}>
-                                <img src={image.path} alt="Image from Memories" className="memories-feed-img" />
-                            </div>
-                        </div>
-                    ))}
-                </div> */}
                 <svg>
                     <defs>
                         <filter id="duotone">
