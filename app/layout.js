@@ -1,6 +1,7 @@
 import "./globals.css";
 import Cursor from "./components/cursor";
 import Script from "next/script";
+import SmoothScrolling from "./components/smoothScrolling";
 
 export const metadata = {
   title: "That's Chic",
@@ -12,8 +13,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <Cursor/>
+        <SmoothScrolling>
         {children}
-        <Script defer src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></Script>
+        </SmoothScrolling>
         <Script defer src="/js/script.js"></Script>
       </body>
     </html>

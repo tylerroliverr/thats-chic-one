@@ -58,7 +58,7 @@ export default function Hero() {
                 <img className="hero-sub-logo" src="/images/TCMiniLogo.png" alt="" />
                 {hero && hero.length > 0 && hero.map((heroSlide, index) => (
                     <div className={`${styles.heroContainer} ${index === currentSlideIndex ? styles.active : ''}`} key={index}>
-                        <Image sizes='100vw' priority={true} fill className={styles.heroImage} src={heroSlide} />
+                        <Image sizes='100vw' priority={true} fill className={styles.heroImage} src={heroSlide} alt={heroSlide}/>
                     </div>
                 ))}
             </div>

@@ -90,33 +90,39 @@ const Memories = () => {
                 <div className='super-small-space'></div>
                 <div id='memories-feed-sanity'>
                     {stories && stories.length > 0 && stories.map((story, index) => (
-                        <div key={index}>
-                            <Link href={`/storyContainer/${story.currentSlug}`}>
+                        <Link key={index} href={`/storyContainer/${story.currentSlug}`}>
+                        <div className='testing'>
+                            
                                 <div className={!isSafariOnMac ? 'memories-image-wrapper-no-filter' : 'memories-image-wrapper'}>
                                     <Image priority={true} sizes='80vw' fill className='memories-feed-img' src={story.heroImagePath} alt={story.currentSlug} />
                                 </div>
-                            </Link>
+                            
                         </div>
+                        </Link>
                     ))}
 
                     {slides && slides.length > 0 && slides.map((slide, index) => (
-                        <div key={index}>
-                            <Link href={`/slideshow/${slide.currentSlug}`}>
+                        <Link key={index} href={`/slideshow/${slide.currentSlug}`}>
+                        <div className='testing'>
+                            
                                 <div className={!isSafariOnMac ? 'memories-image-wrapper-no-filter' : 'memories-image-wrapper'}>
                                     <Image priority={true} sizes='80vw' fill className='memories-feed-img' src={slide.heroImagePath} alt={slide.currentSlug} />
                                 </div>
-                            </Link>
+                            
                         </div>
+                        </Link>
                     ))}
 
                     {iframe && iframe.length > 0 && iframe.map((iframe, index) => (
-                        <div key={index}>
-                            <Link href={`/iframe/${iframe.currentSlug}`}>
+                        <Link key={index} href={`/iframe/${iframe.currentSlug}`}>
+                        <div className='testing'>
+                            
                                 <div className={!isSafariOnMac ? 'memories-image-wrapper-no-filter' : 'memories-image-wrapper'}>
                                     <Image priority={true} sizes='80vw' fill className='memories-feed-img' src={iframe.imagePath} alt={iframe.currentSlug} />
                                 </div>
-                            </Link>
+                            
                         </div>
+                        </Link>
                     ))}
                 </div>
                 <svg>
