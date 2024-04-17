@@ -12,9 +12,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <Cursor/>
+        <Cursor />
         <SmoothScrolling>
-        {children}
+          {children}
         </SmoothScrolling>
         <Script defer src="/js/script.js"></Script>
       </body>
