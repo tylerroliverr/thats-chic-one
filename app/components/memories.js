@@ -4,6 +4,7 @@ import getMemoriesData from './getMemoriesData';
 import getStoryData from './getMemoriesStoryData';
 import getFrameData from './iframeData';
 import Link from 'next/link';
+import Image from 'next/image';
 
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -73,6 +74,7 @@ const Memories = () => {
                     setSlides(slideshowData);
                     setStories(storyData);
                     setIframe(iframeData);
+                    shuffleArray(slideshowData, storyData, iframeData);
                     slideFromLeft();
                 }
             } catch (error) {
@@ -89,29 +91,31 @@ const Memories = () => {
                 <div id='memories-feed-sanity'>
                     {stories && stories.length > 0 && stories.map((story, index) => (
                         <div key={index}>
-                            <div className={story.filterClass || 'memories-image-wrapper'}>
-                                <Link href={`/storyContainer/${story.currentSlug}`}>
-                                    <img className='memories-feed-img' src={story.heroImagePath} alt={story.currentSlug} />
-                                </Link>
-                            </div>
+                            <Link href={`/storyContainer/${story.currentSlug}`}>
+                                <div className={!isSafariOnMac ? 'memories-image-wrapper-no-filter' : 'memories-image-wrapper'}>
+                                    <Image priority={true} sizes='80vw' fill className='memories-feed-img' src={story.heroImagePath} alt={story.currentSlug} />
+                                </div>
+                            </Link>
                         </div>
                     ))}
+
                     {slides && slides.length > 0 && slides.map((slide, index) => (
                         <div key={index}>
-                            <div className={slide.filterClass || 'memories-image-wrapper'}>
-                                <Link href={`/slideshow/${slide.currentSlug}`}>
-                                    <img className='memories-feed-img' src={slide.heroImagePath} alt={slide.currentSlug} />
-                                </Link>
-                            </div>
+                            <Link href={`/slideshow/${slide.currentSlug}`}>
+                                <div className={!isSafariOnMac ? 'memories-image-wrapper-no-filter' : 'memories-image-wrapper'}>
+                                    <Image priority={true} sizes='80vw' fill className='memories-feed-img' src={slide.heroImagePath} alt={slide.currentSlug} />
+                                </div>
+                            </Link>
                         </div>
                     ))}
-                        {iframe && iframe.length > 0 && iframe.map((iframe, index) => (
+
+                    {iframe && iframe.length > 0 && iframe.map((iframe, index) => (
                         <div key={index}>
-                            <div className={iframe.filterClass || 'memories-image-wrapper'}>
-                                <Link href={`/iframe/${iframe.currentSlug}`}>
-                                    <img className='memories-feed-img' src={iframe.imagePath} alt={iframe.currentSlug} /> {/*alt needs to slug????*/}
-                                </Link>
-                            </div>
+                            <Link href={`/iframe/${iframe.currentSlug}`}>
+                                <div className={!isSafariOnMac ? 'memories-image-wrapper-no-filter' : 'memories-image-wrapper'}>
+                                    <Image priority={true} sizes='80vw' fill className='memories-feed-img' src={iframe.imagePath} alt={iframe.currentSlug} />
+                                </div>
+                            </Link>
                         </div>
                     ))}
                 </div>
@@ -135,53 +139,3 @@ const Memories = () => {
 };
 
 export default Memories;
-
-const memoriesImages = [
-    {
-        name: "memories",
-        images: [
-            { path: "/images/Memories-Thats-Chic/FIRST.webp", text: "unsure" },
-            { path: "/images/Memories-Thats-Chic/1 (1).jpg", text: "unsure" },
-            { path: "/images/Memories-Thats-Chic/1 (2).jpg", text: "unsure" },
-            { path: "/images/Memories-Thats-Chic/1 (3).jpg", text: "unsure" },
-            { path: "/images/Memories-Thats-Chic/1 (4).jpg", text: "unsure" },
-            { path: "/images/Memories-Thats-Chic/1 (5).jpg", text: "unsure" },
-            { path: "/images/Memories-Thats-Chic/1 (6).jpg", text: "unsure" },
-            { path: "/images/Memories-Thats-Chic/1 (7).jpg", text: "unsure" },
-            { path: "/images/Memories-Thats-Chic/1 (8).jpg", text: "unsure" },
-            { path: "/images/Memories-Thats-Chic/1 (9).jpg", text: "unsure" },
-            { path: "/images/Memories-Thats-Chic/1 (10).jpg", text: "unsure" },
-            { path: "/images/Memories-Thats-Chic/1 (11).jpg", text: "unsure" },
-            { path: "/images/Memories-Thats-Chic/1 (12).jpg", text: "unsure" },
-            { path: "/images/Memories-Thats-Chic/1 (13).jpg", text: "unsure" },
-            { path: "/images/Memories-Thats-Chic/1 (14).jpg", text: "unsure" },
-            { path: "/images/Memories-Thats-Chic/1 (15).jpg", text: "unsure" },
-            { path: "/images/Memories-Thats-Chic/1 (16).jpg", text: "unsure" },
-            { path: "/images/Memories-Thats-Chic/1 (17).jpg", text: "unsure" },
-            { path: "/images/Memories-Thats-Chic/1 (18).jpg", text: "unsure" },
-            { path: "/images/Memories-Thats-Chic/1 (19).jpg", text: "unsure" },
-            { path: "/images/Memories-Thats-Chic/1 (20).jpg", text: "unsure" },
-            { path: "/images/Memories-Thats-Chic/1 (21).jpg", text: "unsure" },
-            { path: "/images/Memories-Thats-Chic/1 (22).jpg", text: "unsure" },
-            { path: "/images/Memories-Thats-Chic/1 (23).jpg", text: "unsure" },
-            { path: "/images/Memories-Thats-Chic/1 (24).jpg", text: "unsure" },
-            { path: "/images/Memories-Thats-Chic/1 (25).jpg", text: "unsure" },
-            { path: "/images/Memories-Thats-Chic/1 (26).jpg", text: "unsure" },
-            { path: "/images/Memories-Thats-Chic/1 (27).jpg", text: "unsure" },
-            { path: "/images/Memories-Thats-Chic/1 (28).jpg", text: "unsure" },
-            { path: "/images/Memories-Thats-Chic/1 (29).jpg", text: "unsure" },
-            { path: "/images/Memories-Thats-Chic/1 (30).jpg", text: "unsure" },
-            { path: "/images/Memories-Thats-Chic/1 (31).jpg", text: "unsure" },
-            { path: "/images/Memories-Thats-Chic/1 (32).jpg", text: "unsure" },
-            { path: "/images/Memories-Thats-Chic/1 (33).jpg", text: "unsure" },
-            { path: "/images/Memories-Thats-Chic/1 (34).jpg", text: "unsure" },
-            { path: "/images/Memories-Thats-Chic/1 (35).jpg", text: "unsure" },
-            { path: "/images/Memories-Thats-Chic/1 (36).jpg", text: "unsure" },
-            { path: "/images/Memories-Thats-Chic/1 (37).jpg", text: "unsure" },
-            { path: "/images/Memories-Thats-Chic/1 (38).jpg", text: "unsure" },
-            { path: "/images/Memories-Thats-Chic/1 (39).jpg", text: "unsure" },
-            { path: "/images/Memories-Thats-Chic/1 (40).jpg", text: "unsure" },
-            { path: "/images/Memories-Thats-Chic/1 (41).jpg", text: "unsure" }
-        ]
-    }
-];
