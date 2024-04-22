@@ -12,6 +12,11 @@ export const heroSlide = {
             title: "Slide",
             name: "slide",
             type: "image"
+          },
+          {
+            "title": "Video file",
+            "name": "video",
+            "type": "mux.video"
           }
         ]
       }
