@@ -75,6 +75,7 @@ const Chaos = () => {
         };
 
         getImages();
+        console.log("dips")
     }, []);
 
     const slideFromRight = () => {
